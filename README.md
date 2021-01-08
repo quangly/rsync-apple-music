@@ -10,14 +10,14 @@ Of course, this rsync script can be used to back up anything to another mounted 
 
 # CRON Job Settings
 Runs every 30 minutes <br>
-> `crontab -e`
+```crontab -e```
 
-> `0,30 * * * * /Users/quangly/Google\ Drive/rsync-apple-music/music_sync.sh &`
+```0,30 * * * * /Users/quangly/Google\ Drive/rsync-apple-music/music_sync.sh &```
 
 #Exclusions
 Exclude certain directories in Apple Music folder <br>
-> `--exclude 'Audio Music Apps/'` 
-> `--exclude 'Logic/'`
+```--exclude 'Audio Music Apps/'```
+```--exclude 'Logic/'```
 
 # Execute on Demand
-> `./music_sync.sh`
+```./music_sync.sh```
