@@ -4,7 +4,7 @@ Automate backup of Apple Music to External Drive. Will only copy new or renamed 
 Of course, this rsync script can be used to back up anything to another mounted drive.
 
 # Features
-- Log rotation after X number of days
+- Log rotation after X number of days. STDERR to STDOUT
 - Adjustable parameters
 - Cron Job
 
