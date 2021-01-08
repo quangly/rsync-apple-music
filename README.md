@@ -1,5 +1,5 @@
 # rsync-apple-music
-Automate backup of Apple Music to External Drive. Will only copy new or renamed files limiting unnecessary bandwidth. If files in target do not exist, remove them. 
+Automate backup of Apple Music to External Drive. Will only copy new or renamed files limiting unnecessary bandwidth. If files in target do not exist, remove them. This is to prevent orphaned files that have been renamed from source.
 
 Of course, this rsync script can be used to back up anything to another mounted drive.
 
