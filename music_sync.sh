@@ -1,4 +1,7 @@
 #!/bin/bash
+# To Add cronjob, example below.
+# crontab -e
+# 0,30 * * * * /Users/quangly/Google\ Drive/rsync-apple-music/music_sync.sh &
 
 TS=`date +"%Y-%m-%d %H:%M:%S"`
 TS2=`date +"%Y-%m-%d"`
