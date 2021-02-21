@@ -20,4 +20,5 @@ Exclude certain directories in Apple Music folder <br>
 ```--exclude 'Logic/'```
 
 # Execute on Demand
+```chmod +x music_sync.sh```
 ```./music_sync.sh```
