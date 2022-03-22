@@ -18,7 +18,7 @@ TARGET_PATH="/Volumes/music"
 DAYS_OLD=1
 echo "--- Start -----" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
-/usr/bin/rsync -ravi --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete
+/usr/bin/rsync -rvi --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
 # /usr/bin/rsync -ravip  --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete
 # /usr/bin/rsync -ravi --exclude 'dir1/' /Users/quangly/Music/source/ /Volumes/music/destination >> "${LOG}" 2>&1 --delete
 echo "Ending at $TS" >> "$LOG"
