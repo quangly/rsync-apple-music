@@ -9,6 +9,7 @@
 # -a (archive: symbolic links, devices, attributes, permissions, ownerships, etc. are preserved in the transfer. Additionally, compression will be used to reduce the size of data portions of the transfer)
 # -i output change-summary of for all udpates
 # -p preserve permissions
+# -u, --update This forces rsync to skip any files which exist on the destination and have a modified time that is newer than the source file. (If an existing destination file has a modification time equal to the source file's, it will be updated if the sizes are different.)
 
 TS=`date +"%Y-%m-%d %H:%M:%S"`
 TS2=`date +"%Y-%m-%d"`
@@ -18,7 +19,7 @@ TARGET_PATH="/Volumes/music"
 DAYS_OLD=1
 echo "********** Start **********" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
-/usr/bin/rsync -ravip --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
+/usr/bin/rsync -rviu --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
 # /usr/bin/rsync -ravip  --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete
 # /usr/bin/rsync -ravi --exclude 'dir1/' /Users/quangly/Music/source/ /Volumes/music/destination >> "${LOG}" 2>&1 --delete
 echo "Ending at $TS" >> "$LOG"
