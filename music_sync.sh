@@ -4,7 +4,7 @@
 # crontab -e
 # on the hour and half hour
 # Run on the hour and half hour.
-# 0,30 * * * * /Users/quangly/Google\ Drive/rsync-apple-music/music_sync.sh &
+# 0,30 * * * * /Volumes/GoogleDrive/My\ Drive/rsync-apple-music/music_sync.sh &
 # -r (recursive) 
 # -a (archive: symbolic links, devices, attributes, permissions, ownerships, etc. are preserved in the transfer. Additionally, compression will be used to reduce the size of data portions of the transfer)
 # -i output change-summary of for all udpates
