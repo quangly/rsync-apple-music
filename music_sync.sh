@@ -4,7 +4,7 @@
 # crontab -e
 # on the hour and half hour
 # Run on the hour and half hour.
-# 0,30 * * * * /Volumes/GoogleDrive/My\ Drive/rsync-apple-music/music_sync.sh &
+# 0,30 * * * * /Users/quangly/Library/CloudStorage/GoogleDrive-quangdly@gmail.com/My\ Drive/rsync-apple-music/music_sync.sh &
 # -r (recursive) 
 # -a (archive: symbolic links, devices, attributes, permissions, ownerships, etc. are preserved in the transfer. Additionally, compression will be used to reduce the size of data portions of the transfer)
 # -i output change-summary of for all udpates
@@ -17,6 +17,7 @@ LOG="/Users/quangly/logs/rsync.$TS2.log"
 SOURCE_PATH="/Users/quangly/Music/"
 TARGET_PATH="/Volumes/music"
 DAYS_OLD=1
+
 echo "********** Start **********" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
 /usr/bin/rsync -rviu --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
@@ -24,4 +25,4 @@ echo "Running at $TS" >> "$LOG"
 echo "Ending at $TS" >> "$LOG"
 echo "Find and remove log files older than ${DAYS_OLD} days" >> "$LOG"
 find /Users/quangly/logs/ -ctime +${DAYS_OLD}d -print0 | xargs -0 rm
-echo "********** End **********" >> "$LOG"
+echo "********** End ***********"\n >> "$LOG"
