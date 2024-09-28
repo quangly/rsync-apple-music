@@ -23,7 +23,6 @@ DAYS_OLD=1
 echo "********** Start **********" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
 rsync -rviu --iconv=UTF-8-MAC,UTF-8  --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
-# /usr/bin/rsync -rviu --iconv=UTF-8-MAC,UTF-8  --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
 # /usr/bin/rsync -ravi --iconv=UTF-8-MAC,UTF-8 --exclude 'dir1/' /Users/quangly/Music/source/ /Volumes/music/destination >> "${LOG}" 2>&1 --delete --prune-empty-dirs
 echo "Ending at $TS" >> "$LOG"
 echo "Find and remove log files older than ${DAYS_OLD} days" >> "$LOG"
