@@ -7,6 +7,7 @@ Of course, this rsync script can be used to back up anything to another mounted 
 - Log rotation after X number of days. STDERR to STDOUT
 - Adjustable parameters
 - Cron Job
+- UTF-8 normalization to rsync script using --iconv to handle macOS NFD and Synology NAS NFC encoding differences, preventing re-syncing of files with special characters.
 
 # CRON Job Settings
 Runs every 30 minutes <br>

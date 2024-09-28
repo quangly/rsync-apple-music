@@ -10,20 +10,18 @@
 # -i output change-summary of for all udpates
 # -p preserve permissions
 # -u, --update This forces rsync to skip any files which exist on the destination and have a modified time that is newer than the source file. (If an existing destination file has a modification time equal to the source file's, it will be updated if the sizes are different.)
+# -iconv input conversion. It allows rsync to convert file names between different character encodings during synchronization. This is particularly useful when dealing with systems that use different Unicode normalization forms, such as macOS (which uses NFD) and other systems like Synology NAS (which may use NFC).For example, by using --iconv=UTF-8-MAC,UTF-8, you’re instructing rsync to convert filenames from the macOS UTF-8 form (NFD) to the standard UTF-8 (NFC), ensuring that filenames with special characters (like ö) are treated consistently across different systems.
 
 TS=`date +"%Y-%m-%d %H:%M:%S"`
 TS2=`date +"%Y-%m-%d"`
 LOG="/Users/quangly/logs/rsync.$TS2.log"
-# SOURCE_PATH="/Users/quangly/Music/"
 SOURCE_PATH="/Volumes/SD/Music/"
 TARGET_PATH="/Volumes/music"
-# TARGET_PATH="/Volumes/quangly.com/music"
 DAYS_OLD=1
 
 echo "********** Start **********" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
 rsync -rviu --iconv=UTF-8-MAC,UTF-8  --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
-# /usr/bin/rsync -ravi --iconv=UTF-8-MAC,UTF-8 --exclude 'dir1/' /Users/quangly/Music/source/ /Volumes/music/destination >> "${LOG}" 2>&1 --delete --prune-empty-dirs
 echo "Ending at $TS" >> "$LOG"
 echo "Find and remove log files older than ${DAYS_OLD} days" >> "$LOG"
 find /Users/quangly/logs/ -ctime +${DAYS_OLD}d -print0 | xargs -0 rm
