@@ -22,7 +22,14 @@ DAYS_OLD=1
 
 echo "********** Start **********" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
-/opt/homebrew/bin/rsync -rviu --iconv=UTF-8-MAC,UTF-8 --force --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --prune-empty-dirs
+# /opt/homebrew/bin/rsync -rviu --iconv=UTF-8-MAC,UTF-8 --force --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --prune-empty-dirs
+
+/opt/homebrew/bin/rsync -rviu --iconv=UTF-8-MAC,UTF-8 --force \
+  --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' \
+  --delete --delete-excluded  --prune-empty-dirs \
+  "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1
+
+
 # /opt/homebrew/bin/rsync -rviu --iconv=UTF-8-MAC,UTF-8 --force --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
 # /opt/homebrew/bin/rsync -rviu --dry-run --iconv=UTF-8-MAC,UTF-8 \
 #   --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' \
