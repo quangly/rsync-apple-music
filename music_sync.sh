@@ -19,7 +19,7 @@ LOG="/Users/quangly/logs/rsync.$TS2.log"
 SOURCE_PATH="/Volumes/SD/Music/"
 TARGET_PATH="/Volumes/music"
 # TARGET_PATH="/Volumes/LYUSBC/Music/"
-# TARGET_PATH="/Volumes/Crucial2TB/Music"
+# TARGET_PATH="/Volumes/Crucial2TB/Music/"
 DAYS_OLD=1
 #
 echo "********** Start **********" >> "$LOG"
