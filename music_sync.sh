@@ -20,13 +20,13 @@ LOG="/Users/quangly/logs/rsync.$TS2.log"
 SOURCE_PATH="/Volumes/SD/Music/"
 TARGET_PATH="/Volumes/Data/media/music/"
 # TARGET_PATH="/Volumes/LYUSBC/Music/"
-# TARGET_PATH="/Volumes/Crucial2TB/Music/"
+TARGET_PATH="/Volumes/Crucial2TB/Music/"
 DAYS_OLD=1
 #
 echo ""  >> "$LOG"
 echo "********** Start **********" >> "$LOG"
 echo "Running at $TS" >> "$LOG"
-/opt/homebrew/bin/rsync -rviu --iconv=UTF-8-MAC,UTF-8 --force --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' --exclude '._*' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete --prune-empty-dirs
+/opt/homebrew/bin/rsync -rviu --force --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' --exclude '._*' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1 --delete-during --prune-empty-dirs
 
 #--dry-run
 # /opt/homebrew/bin/rsync -avzu --delete --prune-empty-dirs --iconv=UTF-8-MAC,UTF-8 --exclude '.DS_Store' --exclude 'Audio Music Apps/' --exclude 'Logic/' --exclude 'source' "${SOURCE_PATH}" "${TARGET_PATH}" >> "${LOG}" 2>&1
